@@ -8,6 +8,10 @@ public class Author {
         this.name = name;
     }
 
+    public String getName() {
+        return this.name;
+    }
+
     public void addTitle(Title titles) {
         this.titles.add(titles);
     }
