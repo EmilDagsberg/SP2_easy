@@ -23,7 +23,8 @@ public abstract class Title {
     }
 
     public double calculateRoyalty() {
-        return calculatePoints() * 0.067574;
+        rate = 0.067574;
+        return calculatePoints() * rate;
     }
 
     protected abstract double calculatePoints();

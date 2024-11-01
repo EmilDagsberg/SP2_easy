@@ -11,14 +11,12 @@ public class AudioBook extends Title {
     }
 
     protected double calculateLiteraturePoints() {
-        if (super.getLiteratureType().equals("BI") || super.getLiteratureType().equals("TE")) {
-            return 1.50;
-        } else if (super.getLiteratureType().equals("LYRIK")) {
-            return 3.00;
-        } else if (super.getLiteratureType().equals("SKØN")) {
-            return 0.85;
-        } else {
-            return 0.50;
-        }
+        return switch (super.getLiteratureType()) {
+            case "BI", "TE" -> 1.50;
+            case "LYRIK" -> 3.00;
+            case "SKØN" -> 0.85;
+            case "FAG" -> 0.50;
+            default -> 0.00;
+        };
     }
 }

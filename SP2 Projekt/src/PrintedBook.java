@@ -11,14 +11,12 @@ public class PrintedBook extends Title {
     }
 
     protected double calculateLiteraturePoints() {
-        if(super.getLiteratureType().equals("BI") || super.getLiteratureType().equals("TE") ) {
-            return 3.00;
-        } else if (super.getLiteratureType().equals("LYRIK")) {
-            return 6.00;
-        } else if(super.getLiteratureType().equals("SKØN")) {
-            return 1.70;
-        } else {
-            return 1.00;
-        }
+        return switch (super.getLiteratureType()) {
+            case "BI", "TE" -> 3.00;
+            case "LYRIK" -> 6.00;
+            case "SKØN" -> 1.70;
+            case "FAG" -> 1.00;
+            default -> 0.00;
+        };
     }
 }
